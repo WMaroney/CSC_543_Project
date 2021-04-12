@@ -36,6 +36,17 @@ body {
 	border-radius: 5px;
 }
 
+.hold{
+	
+	display: block;
+	position: absolute;
+	text-align: center;
+	width: 32px;
+	float: left;
+	padding: 6px;
+	
+}
+
 .dice-roll {
 	cursor: pointer;
 	text-transform: capitalize;
