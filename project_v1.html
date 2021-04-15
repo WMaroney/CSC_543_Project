@@ -9,6 +9,7 @@
 	</head>
 	<body>
 	<div>
+		<div class="container">
 			<div id="dice_list" class="column">
 				<div id="dice-side-1" class="dice unheld">?</div>
 				<div id="dice-side-2" class="dice unheld">?</div>
@@ -16,8 +17,11 @@
 				<div id="dice-side-4" class="dice unheld">?</div>
 				<div id="dice-side-5" class="dice unheld">?</div>
 				<div id="dice-side-6" class="dice unheld">?</div>
+				
+				<button type="button" class="btn btn-primary mb1 bg-blue dice-roll">Roll Dice</button>
 			</div>
-
+		</div>
+		<div class="container">
 			<div class= "column">
 				<button type="button" class="btn btn-primary mb1 bg-red hold-dice" onclick='document.getElementById("dice-side-1").classList.toggle("unheld")'>HOLD</button>
 				<button type="button" class="btn btn-primary mb1 bg-red hold-dice" onclick='document.getElementById("dice-side-2").classList.toggle("unheld")'>HOLD</button>
@@ -25,13 +29,8 @@
 				<button type="button" class="btn btn-primary mb1 bg-red hold-dice" onclick='document.getElementById("dice-side-4").classList.toggle("unheld")'>HOLD</button>
 				<button type="button" class="btn btn-primary mb1 bg-red hold-dice" onclick='document.getElementById("dice-side-5").classList.toggle("unheld")'>HOLD</button>
 				<button type="button" class="btn btn-primary mb1 bg-red hold-dice" onclick='document.getElementById("dice-side-6").classList.toggle("unheld")'>HOLD</button>
-
 			</div>
-			
-			<div class="column">
-					<button type="button" class="btn btn-primary mb1 bg-blue dice-roll">Roll Dice</button>
-			</div>
-			
+		</div>
 	</div>
 	<div>
 		<h2 id="status"></h2>
