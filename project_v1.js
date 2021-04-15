@@ -1,45 +1,36 @@
 window.addEventListener( 'DOMContentLoaded', function () 
 	{
-	
-		const buttonRollDice = document.querySelector( '.dice-roll' );
+		const all_dice = document.getElementById( "dice_list" ).querySelectorAll( ".dice" ); //Static NodeList containing all "dice" elements. Initialized outside of function for speed/efficiency.
+		const buttonRollDice = document.querySelector( ".dice-roll" );
+		buttonRollDice.addEventListener( 'click', rollDice, false ); //Call rollDice() when the button is clicked
 
-		function rollDice () 
-		{
-
-		const diceSide1 = document.getElementById( 'dice-side-1' );
-		const diceSide2 = document.getElementById( 'dice-side-2' );
-		const diceSide3 = document.getElementById( 'dice-side-3' );
-		const diceSide4 = document.getElementById( 'dice-side-4' );
-		const diceSide5 = document.getElementById( 'dice-side-5' );
-		const diceSide6 = document.getElementById( 'dice-side-6' );
-		
 		const status = document.getElementById( 'status' );
 
-		const side1 = Math.floor( Math.random() * 6 ) + 1;
-		const side2 = Math.floor( Math.random() * 6 ) + 1;
-		const side3 = Math.floor( Math.random() * 6 ) + 1;
-		const side4 = Math.floor( Math.random() * 6 ) + 1;
-		const side5 = Math.floor( Math.random() * 6 ) + 1;
-		const side6 = Math.floor( Math.random() * 6 ) + 1;
-		
-		const diceTotal = side1 + side2 + side3 + side4 + side5 + side6;
 
-		diceSide1.innerHTML = side1;
-		diceSide2.innerHTML = side2;
-		diceSide3.innerHTML = side3;
-		diceSide4.innerHTML = side4;
-		diceSide5.innerHTML = side5;
-		diceSide6.innerHTML = side6;
-
-		status.innerHTML = 'You rolled ' + diceTotal + '.';
-// FIX THIS so we are checking for doubles, triples, guads, etc
-
-
-		if ( side1 === side2 || side2 === side3 || side3 === side4 || side4 === side5 || side5 === side6 || side1 === side3 || side1 === side4 || side1 === side5 || side1 === side6 || side2 === side4 || side2 === side5 || side2 === side6 || side3 == side5 || side3 === side5 || side3 === side6 || side4 === side6) 
-		{
-			status.innerHTML += ' Doubles! You get a free turn!';
+		function rollDice ()
+		{let values = [] //Array for storing dice rolls.
+		for (let id = 0; id < all_dice.length; id++) {
+			//status.textContent += all_dice[id].classList;
+			if (all_dice[id].classList.contains('unheld')) //Loop through all unheld dice objects. Generate a random roll for each. Store the values, display them as strings on the page, and mark scorable dice as such (adding green border).  
+			{
+				let die_roll = Math.floor( Math.random() * 6) + 1;
+				values.push(die_roll);
+				all_dice[id].textContent = die_roll.toString();
+				if (die_roll in [1,5]) //Need to add regex for triples, etc. 
+				{
+					all_dice[id].classList.add( "scorable" );
+				}
+			}
 		}
-	}
+		
+		let scorable_dice = document.getElementById( "dice_list" ).querySelectorAll( ".scorable" );
+		if (scorable_dice.length === 0) {
+			status.textContent = 'Sorry, you bust! No 1s, 5s, or multiples detected.'
+		} else {
+			status.textContent = 'Click on the HOLD button next to the die or dice you want to score.'
+		}
+		}
 
-	buttonRollDice.addEventListener( 'click', rollDice, false );
+
+
 }, false);

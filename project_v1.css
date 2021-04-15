@@ -1,13 +1,15 @@
+@import url("https://unpkg.com/basscss@7.1.1/css/basscss.min.css"); /* stylesheet */
+
 body {
 	position: relative;
 }
 
-.wrapper {
+/* .wrapper {
 	width: 400px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
-}
+} */
 
 .column {
 	display: flex;
@@ -15,10 +17,6 @@ body {
 }
 
 #status {
-	position: absolute;
-	top: 5rem;
-	left: 50%;
-	transform: translateX(-50%);
 	min-width: 400px;
 	margin: 0;
 	text-align: center;
@@ -36,18 +34,17 @@ body {
 	border-radius: 5px;
 }
 
-.hold{
-	
-	display: block;
-	position: absolute;
-	text-align: center;
-	width: 32px;
-	float: left;
-	padding: 6px;
-	
+.unheld{
+	border: 10px red;
 }
 
+.scorable{
+	border: 10px green;
+}
 .dice-roll {
-	cursor: pointer;
-	text-transform: capitalize;
+	color: black;
+}
+
+.hold-dice {
+	color: black;
 }
