@@ -25,7 +25,7 @@ window.addEventListener( 'DOMContentLoaded', function ()
 		
 		let scorable_dice = document.getElementById( "dice_list" ).querySelectorAll( ".scorable" );
 		if (scorable_dice.length === 0) {
-			status.textContent = 'Sorry, you bust! No 1s, 5s, or multiples detected.'
+			status.textContent = "Sorry, that's a bust! No 1s, 5s, or multiples detected."
 		} else {
 			status.textContent = 'Click on the HOLD button next to the die or dice you want to score.'
 		}
